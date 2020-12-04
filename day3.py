@@ -1,4 +1,4 @@
-# Problem: https://adventofcode.com/2020/day/1
+# Problem: https://adventofcode.com/2020/day/3
 # Date: December 2020
 # Author: Alex Nazareth
 
