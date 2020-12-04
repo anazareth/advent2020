@@ -3,7 +3,6 @@
 # Author: Alex Nazareth
 
 import numpy as np
-import time
 
 def part1():
     in_filename = 'day3_in.txt'
