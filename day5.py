@@ -15,6 +15,23 @@ def part1():
         temp_id = get_row(bp)*8 + get_col(bp)
         max_seat_id = max(temp_id, max_seat_id)
     print(max_seat_id)
+
+
+def part2():
+    in_filename = r'data\day5_in.txt'
+    in_data = np.loadtxt(in_filename, dtype=str)
+
+    id_list = []
+    for bp in in_data:
+        id_list.append(get_row(bp)*8 + get_col(bp))
+
+    id_list.sort()
+    for i in range(1,len(id_list)):
+        if id_list[i]-id_list[i-1]==2:
+            result = id_list[i]-1
+            break
+    print(result)
+
         
 def get_row(boarding_pass):
     row_a, row_b = 0, 128
@@ -41,4 +58,4 @@ def get_col(boarding_pass):
 
 
 if __name__=='__main__':
-    part1()
+    part2()
