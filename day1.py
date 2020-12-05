@@ -7,7 +7,7 @@ import time
 
 
 def part1():
-    in_filename = 'day1_in.txt'
+    in_filename = r'data\day1_in.txt'
     TARGET_SUM = 2020
 
     in_data = np.loadtxt(in_filename, dtype=int, delimiter='\n')
@@ -20,7 +20,7 @@ def part1():
 
 
 def part2():
-    in_filename = 'day1_in.txt'
+    in_filename = r'data\day1_in.txt'
     TARGET_SUM = 2020
 
     in_data = np.loadtxt(in_filename, dtype=int, delimiter='\n')

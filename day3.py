@@ -5,7 +5,7 @@
 import numpy as np
 
 def part1():
-    in_filename = 'day3_in.txt'
+    in_filename = r'data\day3_in.txt'
     in_data = np.loadtxt(in_filename, dtype=str, delimiter='\n', comments=None)
 
     in_width, ymax = len(in_data[0]), len(in_data)
@@ -20,7 +20,7 @@ def part1():
     return num_trees
 
 def part2(dx, dy):
-    in_filename = 'day3_in.txt'
+    in_filename = r'data\day3_in.txt'
     in_data = np.loadtxt(in_filename, dtype=str, delimiter='\n', comments=None)
 
     in_width, ymax = len(in_data[0]), len(in_data)

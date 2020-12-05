@@ -7,7 +7,7 @@ import re
 
 
 def part1():
-    in_filename = 'day4_in.txt'
+    in_filename = r'data\day4_in.txt'
     passports = parse_passports(in_filename)
     required_fields = ['byr','iyr','eyr','hgt','hcl','ecl','pid']  # cid excl.
     num_req_fields = [7,8]
@@ -21,7 +21,7 @@ def part1():
 
 
 def part2():
-    in_filename = 'day4_in.txt'
+    in_filename = r'data\day4_in.txt'
     passports = parse_passports(in_filename)
     required_fields = ['byr','iyr','eyr','hgt','hcl','ecl','pid']  # cid excl.
     num_req_fields = [7,8]

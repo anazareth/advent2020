@@ -6,7 +6,7 @@ import numpy as np
 
 
 def part1():
-    in_filename = 'day2_in.txt'
+    in_filename = r'data\day2_in.txt'
 
     in_data = np.loadtxt(in_filename, dtype=str)
 
@@ -26,13 +26,12 @@ def part1():
 
 
 def part2():
-    in_filename = 'day2_in.txt'
+    in_filename = r'data\day2_in.txt'
 
     in_data = np.loadtxt(in_filename, dtype=str)
 
     count_valid=0
     for p in in_data:
-        countl=0
         pos1, pos2 = [int(m)-1 for m in p[0].split('-')]
         letter = p[1].strip(':')
         pword = p[2]
