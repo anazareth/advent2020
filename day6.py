@@ -25,7 +25,6 @@ def part1():
 def part2():
     in_filename = r'data\day6_in.txt'
     with open(in_filename) as f:
-        
         count=0
         common_answers = {}
         for line in f.readlines():
