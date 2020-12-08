@@ -60,9 +60,6 @@ def sum_bags(G, bag_colour):
         temp = 0
         for c, w in dict(child_bags).items():
             temp += int(w['weight']) + int(w['weight'])*int(sum_bags(G, c))
-            print(c,w)
-        print('--')
-        print(str(w['weight']) + ' + ' + str(w['weight']) + '*' + str(temp))
         return temp
 
 
