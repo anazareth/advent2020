@@ -35,7 +35,6 @@ def part2(in_data):
             G.add_edge(i, i+1)
         else:
             G.add_edge(i, i+val)
-    
     i = 0
     end_node = n-1
     while True:
