@@ -4,7 +4,6 @@
 
 import numpy as np
 import re
-import os
 
 
 def part1(in_data):
