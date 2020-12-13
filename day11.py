@@ -4,7 +4,6 @@
 
 
 import numpy as np
-import re
 
 
 EMPTY = 0
@@ -29,7 +28,6 @@ def part2(in_data):
     prev_seating_matrix = None
     while True:
         seating_matrix, num_occupied = update_seating(seating_matrix, 5)
-        # print_seating_matrix(seating_matrix)
         if np.array_equal(prev_seating_matrix, seating_matrix):
             return num_occupied
         else:
@@ -112,20 +110,6 @@ def sum_adjacent_pt2(seating_matrix, i, j):
                 sum_adj_occ += 1
             break
     return sum_adj_occ
-
-
-def print_seating_matrix(seating_matrix):
-    # to help with debugging only
-    for row in seating_matrix:
-        for element in row:
-            if element == 1:
-                print('#', end='')
-            elif element == 0:
-                print('L', end='')
-            elif element == -1:
-                print('.', end='')
-        print('')
-    print('\n--------------------------------')
 
 
 if __name__=='__main__':
