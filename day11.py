@@ -29,7 +29,7 @@ def part2(in_data):
     prev_seating_matrix = None
     while True:
         seating_matrix, num_occupied = update_seating(seating_matrix, 5)
-        print_seating_matrix(seating_matrix)
+        # print_seating_matrix(seating_matrix)
         if np.array_equal(prev_seating_matrix, seating_matrix):
             return num_occupied
         else:
@@ -43,7 +43,7 @@ def update_seating(seating_matrix, adj_threshold):
     for i in range(len(seating_matrix)):
         for j in range(len(seating_matrix[i])):
             if seating_matrix[i][j] == EMPTY and \
-                sum_adjacent_pt2(seating_matrix, 2, 3)==0:  # if empty
+                sum_adjacent_pt2(seating_matrix, i, j)==0:  # if empty
                     updated_seating[i][j] = OCCUPIED
                     num_occupied += 1
             elif seating_matrix[i][j] == OCCUPIED:
@@ -71,51 +71,51 @@ def sum_adjacent_pt2(seating_matrix, i, j):
     sum_adj_occ = 0
     i_max = len(seating_matrix)
     j_max = len(seating_matrix[0])
-    # print(i+1, i_max)
     for x in range(i+1, i_max): # downward direction
-        if seating_matrix[x,j]==1:
-            sum_adj_occ += 1
+        if seating_matrix[x,j]>=0:
+            if seating_matrix[x,j]==1:
+                sum_adj_occ += 1
             break
-    # print(0, i)
     for x in range(i-1, -1, -1): # upward direction
-        if seating_matrix[x,j]==1:
-            sum_adj_occ += 1
+        if seating_matrix[x,j]>=0:
+            if seating_matrix[x,j]==1:
+                sum_adj_occ += 1
             break
-    # print(range(j+1, j_max))
     for y in range(j+1, j_max): # right direction
-        if seating_matrix[i,y]==1:
-            sum_adj_occ += 1
+        if seating_matrix[i,y]>=0:
+            if seating_matrix[i,y]==1:
+                sum_adj_occ += 1
             break
-    # print(reversed(range(0, j)))
     for y in range(j-1, -1, -1): # left direction
-        if seating_matrix[i,y]==1:
-            sum_adj_occ += 1
+        if seating_matrix[i,y]>=0:
+            if seating_matrix[i,y]==1:
+                sum_adj_occ += 1
             break
-    # print(range(1, min(i_max-i, j_max-j)))
     for d in range(1, min(i_max-i, j_max-j)): # SE direction
-        if seating_matrix[i+d,j+d]==1:
-            sum_adj_occ += 1
+        if seating_matrix[i+d,j+d]>=0:
+            if seating_matrix[i+d,j+d]==1:
+                sum_adj_occ += 1
             break
-    # print(range(1, min(i+1-0, j+1-0)))
     for d in range(1, min(i-0, j-0)+1): # NW direction
-        # print(i-d,j-d)
-        if seating_matrix[i-d,j-d]==1:
-            sum_adj_occ += 1
+        if seating_matrix[i-d,j-d]>=0:
+            if seating_matrix[i-d,j-d]==1:
+                sum_adj_occ += 1
             break
-    # print(range(1, min(i+1-0, j_max-j)))
     for d in range(1, min(i+1-0, j_max-j)): # NE direction
-        if seating_matrix[i-d,j+d]==1:
-            sum_adj_occ += 1
+        if seating_matrix[i-d,j+d]>=0:
+            if seating_matrix[i-d,j+d]==1:
+                sum_adj_occ += 1
             break
-    # print(range(1, min(i_max-i, j+1-0)))
     for d in range(1, min(i_max-i, j+1-0)): # SW direction
-        if seating_matrix[i+d,j-d]==1:
-            sum_adj_occ += 1
+        if seating_matrix[i+d,j-d]>=0:
+            if seating_matrix[i+d,j-d]==1:
+                sum_adj_occ += 1
             break
     return sum_adj_occ
 
 
 def print_seating_matrix(seating_matrix):
+    # to help with debugging only
     for row in seating_matrix:
         for element in row:
             if element == 1:
@@ -124,15 +124,12 @@ def print_seating_matrix(seating_matrix):
                 print('L', end='')
             elif element == -1:
                 print('.', end='')
-            else:  # shouldn't do this
-                print('x', end='')
         print('')
     print('\n--------------------------------')
 
 
 if __name__=='__main__':
-    # in_filename = r'data\day11_in.txt'
-    in_filename = r'data\test11.txt'
+    in_filename = r'data\day11_in.txt'
     in_data = np.loadtxt(in_filename, dtype=str)
     id_map = {'L': 0, r'#': 1, '.': -1}
     in_data2 = np.array([[id_map[seat] for seat in row] for row in in_data])
